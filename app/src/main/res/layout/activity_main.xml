@@ -9,6 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:orientation="vertical" >
 
         <TextView
@@ -21,7 +22,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Choose player"
+            android:text="One player / Two players?"
             android:textAlignment="center"
             android:textSize="20dp"
             android:layout_margin="30dp"/>
@@ -33,15 +34,15 @@
             android:layout_height="wrap_content">
 
             <RadioButton
-                android:id="@+id/x"
-                android:text="X"
+                android:id="@+id/one"
+                android:text="One "
                 android:textSize="48dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
             <RadioButton
-                android:id="@+id/o"
-                android:text="O"
+                android:id="@+id/two"
+                android:text="Two"
                 android:textSize="48dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -56,12 +57,27 @@
             android:layout_marginTop="50dp"
             android:text="What you'll choose will appear here" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <LinearLayout
+            android:layout_marginTop="50dp"
             android:layout_gravity="center"
-            android:layout_margin="50dp"
-            android:text="confirm" />
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/exit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="EXIT" />
+
+            <Button
+                android:id="@+id/confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="confirm"
+                android:layout_marginLeft="30dp"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 
