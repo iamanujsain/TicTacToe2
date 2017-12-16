@@ -92,7 +92,6 @@ public class MainActivity extends AppCompatActivity {
         cnf.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 finish();
             }

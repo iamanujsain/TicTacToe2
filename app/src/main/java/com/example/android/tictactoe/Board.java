@@ -53,6 +53,7 @@ public class Board extends Activity {
         b.setText("O");
     }
 
+    // Enables or disables buttons in the game board.
     public void enableButtons(boolean b) {
         b1.setEnabled(b);
         b2.setEnabled(b);
@@ -92,6 +93,20 @@ public class Board extends Activity {
         enableButtons(true);
     }
 
+    // Tells player X to make a move.
+    public void dec_X() {
+        if (gameActive) {
+            tv.setText("Player X, make you move!");
+        }
+    }
+
+    // Tells player O to make a move.
+    public void dec_O() {
+        if (gameActive) {
+            tv.setText("Player O, make your move!");
+        }
+    }
+
     // handles each button click.
     public void buttonClick() {
 
@@ -101,6 +116,7 @@ public class Board extends Activity {
                 reset();
                 Toast.makeText(Board.this,"Game has been reset",
                         Toast.LENGTH_SHORT).show();
+                tv.setText("Player X makes the first move!");
             }
         });
 
@@ -113,16 +129,20 @@ public class Board extends Activity {
             }
         });
 
-        while(gameActive) {
+        if (gameActive) {
             b1.setOnClickListener(new Button.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     if (counter % 2 == 0) {
                         setX(b1);
+                        dec_O();
                     } else {
                         setO(b1);
+                        dec_X();
                     }
+                    b1.setEnabled(false);
                     checkForWinner();
+                    counter++;
                 }
             });
 
@@ -131,10 +151,14 @@ public class Board extends Activity {
                 public void onClick(View view) {
                     if (counter % 2 == 0) {
                         setX(b2);
+                        dec_O();
                     } else {
                         setO(b2);
+                        dec_X();
                     }
+                    b2.setEnabled(false);
                     checkForWinner();
+                    counter++;
                 }
             });
 
@@ -143,10 +167,14 @@ public class Board extends Activity {
                 public void onClick(View view) {
                     if (counter % 2 == 0) {
                         setX(b3);
+                        dec_O();
                     } else {
                         setO(b3);
+                        dec_X();
                     }
+                    b3.setEnabled(false);
                     checkForWinner();
+                    counter++;
                 }
             });
 
@@ -155,10 +183,14 @@ public class Board extends Activity {
                 public void onClick(View view) {
                     if (counter % 2 == 0) {
                         setX(b4);
+                        dec_O();
                     } else {
                         setO(b4);
+                        dec_X();
                     }
+                    b4.setEnabled(false);
                     checkForWinner();
+                    counter++;
                 }
             });
 
@@ -167,10 +199,14 @@ public class Board extends Activity {
                 public void onClick(View view) {
                     if (counter % 2 == 0) {
                         setX(b5);
+                        dec_O();
                     } else {
                         setO(b5);
+                        dec_X();
                     }
+                    b5.setEnabled(false);
                     checkForWinner();
+                    counter++;
                 }
             });
 
@@ -179,10 +215,14 @@ public class Board extends Activity {
                 public void onClick(View view) {
                     if (counter % 2 == 0) {
                         setX(b6);
+                        dec_O();
                     } else {
                         setO(b6);
+                        dec_X();
                     }
+                    b6.setEnabled(false);
                     checkForWinner();
+                    counter++;
                 }
             });
 
@@ -191,10 +231,14 @@ public class Board extends Activity {
                 public void onClick(View view) {
                     if (counter % 2 == 0) {
                         setX(b7);
+                        dec_O();
                     } else {
                         setO(b7);
+                        dec_X();
                     }
+                    b7.setEnabled(false);
                     checkForWinner();
+                    counter++;
                 }
             });
 
@@ -203,10 +247,14 @@ public class Board extends Activity {
                 public void onClick(View view) {
                     if (counter % 2 == 0) {
                         setX(b8);
+                        dec_O();
                     } else {
                         setO(b8);
+                        dec_X();
                     }
+                    b8.setEnabled(false);
                     checkForWinner();
+                    counter++;
                 }
             });
 
@@ -215,10 +263,13 @@ public class Board extends Activity {
                 public void onClick(View view) {
                     if (counter % 2 == 0) {
                         setX(b9);
+                        dec_O();
                     } else {
                         setO(b9);
+                        dec_X();
                     }
                     checkForWinner();
+                    counter++;
                 }
             });
         }
@@ -281,7 +332,7 @@ public class Board extends Activity {
             enableButtons(false);
         }
 
-        if (counter == 9 && gameActive) {
+        if (counter == 8 && gameActive) {
             tv.setText("The match is a tie. Press RESET or go to the main menu.");
             gameActive = false;
             enableButtons(false);
