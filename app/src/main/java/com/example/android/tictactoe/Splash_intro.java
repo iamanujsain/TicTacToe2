@@ -21,6 +21,7 @@ public class Splash_intro extends Activity {
         toast.setDuration(Toast.LENGTH_SHORT);
         toast.show();
 
+        Board.flag = false;
 
         thread = new Thread() {
             @Override

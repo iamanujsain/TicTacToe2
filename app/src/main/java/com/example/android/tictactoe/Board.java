@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 public class Board extends Activity {
 
+    public static boolean flag;
+
     Button b1, b2, b3, b4, b5, b6, b7, b8, b9, reset, mainMenu;
     int counter;
     boolean gameActive;
@@ -20,6 +22,7 @@ public class Board extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.board);
 
+        flag = true;
         gameActive = true;
         counter = 0;
 
@@ -268,6 +271,7 @@ public class Board extends Activity {
                         setO(b9);
                         dec_X();
                     }
+                    b9.setEnabled(false);
                     checkForWinner();
                     counter++;
                 }
