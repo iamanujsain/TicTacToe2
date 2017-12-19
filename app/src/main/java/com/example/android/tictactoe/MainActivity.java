@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         toast.setGravity(Gravity.CENTER_VERTICAL, 0,0);
         toast.setDuration(Toast.LENGTH_SHORT);
         toast.setView(layout);
-        if (!Board.flag) {
+        if (!BoardTwo.flag) {
             toast.show();
         }
 
@@ -71,12 +71,12 @@ public class MainActivity extends AppCompatActivity {
                 switch (i) {
                     case R.id.one:
                         chc.setText("You've chosen 'One Player'");
-                        intent = new Intent(MainActivity.this, Board.class);
+                        intent = new Intent(MainActivity.this, BoardOne.class);
                         pressConfirm();
                         break;
                     case R.id.two:
                         chc.setText("You've chosen 'Two Players'");
-                        intent = new Intent(MainActivity.this, Board.class);
+                        intent = new Intent(MainActivity.this, BoardTwo.class);
                         pressConfirm();
                         break;
                 }

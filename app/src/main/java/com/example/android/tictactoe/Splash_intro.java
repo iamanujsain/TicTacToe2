@@ -3,8 +3,6 @@ package com.example.android.tictactoe;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.widget.Toast;
 
 public class Splash_intro extends Activity {
 
@@ -16,18 +14,13 @@ public class Splash_intro extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.toast_intro);
 
-        Toast toast = Toast.makeText(this, "Made by Anuj", Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.TOP, 0,50);
-        toast.setDuration(Toast.LENGTH_SHORT);
-        toast.show();
-
-        Board.flag = false;
+        BoardTwo.flag = false;
 
         thread = new Thread() {
             @Override
             public void run() {
                 try {
-                    Thread.sleep(4000);
+                    Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } finally {

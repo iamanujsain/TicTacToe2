@@ -3,12 +3,13 @@ package com.example.android.tictactoe;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Board extends Activity {
+public class BoardTwo extends Activity {
 
     public static boolean flag;
 
@@ -117,8 +118,10 @@ public class Board extends Activity {
             @Override
             public void onClick(View view) {
                 reset();
-                Toast.makeText(Board.this,"Game has been reset",
-                        Toast.LENGTH_SHORT).show();
+                Toast toast = Toast.makeText(BoardTwo.this,"Game has been reset",
+                        Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER_VERTICAL, 0,0);
+                toast.show();
                 tv.setText("Player X makes the first move!");
             }
         });
@@ -126,7 +129,7 @@ public class Board extends Activity {
         mainMenu.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent mm = new Intent(Board.this, MainActivity.class);
+                Intent mm = new Intent(BoardTwo.this, MainActivity.class);
                 startActivity(mm);
                 finish();
             }
@@ -283,6 +286,7 @@ public class Board extends Activity {
         if (gameActive && !isEmpty(b1) && b1.getText().toString() == b2.getText().toString() &&
                 b1.getText().toString() == b3.getText().toString()) {
             tv.setText("The winner is player: " + b1.getText().toString());
+            winToast(b1.getText().toString());
             gameActive = false;
             enableButtons(false);
         }
@@ -292,6 +296,7 @@ public class Board extends Activity {
             tv.setText("The winner is player: " + b4.getText().toString());
             gameActive = false;
             enableButtons(false);
+            winToast(b4.getText().toString());
         }
 
         if (gameActive && !isEmpty(b7) && b7.getText().toString() == b8.getText().toString() &&
@@ -299,6 +304,7 @@ public class Board extends Activity {
             tv.setText("The winner is player: " + b7.getText().toString());
             gameActive = false;
             enableButtons(false);
+            winToast(b7.getText().toString());
         }
 
         if (gameActive && !isEmpty(b1) && b1.getText().toString() == b4.getText().toString() &&
@@ -306,6 +312,7 @@ public class Board extends Activity {
             tv.setText("The winner is player: " + b1.getText().toString());
             gameActive = false;
             enableButtons(false);
+            winToast(b1.getText().toString());
         }
 
         if (gameActive && !isEmpty(b2) && b2.getText().toString() == b5.getText().toString() &&
@@ -313,6 +320,7 @@ public class Board extends Activity {
             tv.setText("The winner is player: " + b2.getText().toString());
             gameActive = false;
             enableButtons(false);
+            winToast(b2.getText().toString());
         }
 
         if (gameActive && !isEmpty(b3) && b3.getText().toString() == b6.getText().toString() &&
@@ -320,6 +328,7 @@ public class Board extends Activity {
             tv.setText("The winner is player: " + b3.getText().toString());
             gameActive = false;
             enableButtons(false);
+            winToast(b3.getText().toString());
         }
 
         if (gameActive && !isEmpty(b1) && b1.getText().toString() == b5.getText().toString() &&
@@ -327,6 +336,7 @@ public class Board extends Activity {
             tv.setText("The winner is player: " + b1.getText().toString());
             gameActive = false;
             enableButtons(false);
+            winToast(b1.getText().toString());
         }
 
         if (gameActive && !isEmpty(b3) && b3.getText().toString() == b5.getText().toString() &&
@@ -334,12 +344,23 @@ public class Board extends Activity {
             tv.setText("The winner is player: " + b3.getText().toString());
             gameActive = false;
             enableButtons(false);
+            winToast(b3.getText().toString());
         }
 
         if (counter == 8 && gameActive) {
             tv.setText("The match is a tie. Press RESET or go to the main menu.");
             gameActive = false;
             enableButtons(false);
+            // Toast
+            Toast toast = Toast.makeText(this, "It's a tie!", Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.CENTER_VERTICAL, 0,0);
+            toast.show();
         }
+    }
+
+    public void winToast(String s) {
+        Toast toast = Toast.makeText(this, "The winner is " + s, Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER_VERTICAL, 0,0);
+        toast.show();
     }
 }

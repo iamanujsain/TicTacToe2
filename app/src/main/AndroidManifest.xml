@@ -23,9 +23,16 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".Board">
+        <activity android:name=".BoardTwo">
             <intent-filter>
-                <action android:name="android.intent.action.Board" />
+                <action android:name="android.intent.action.BoardTwo" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".BoardOne">
+            <intent-filter>
+                <action android:name="android.intent.action.BoardOne" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
