@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
     tools:context="com.example.android.tictactoe.MainActivity">
 
     <LinearLayout
@@ -10,72 +11,79 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Let's play Tic Tac Toe!"
-            android:textSize="35dp"
-            android:textAlignment="center"/>
+            android:textAlignment="center"
+            android:textColor="?android:attr/colorActivatedHighlight"
+            android:textSize="35dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="30dp"
             android:text="One player / Two players?"
             android:textAlignment="center"
-            android:textSize="20dp"
-            android:layout_margin="30dp"/>
+            android:textColor="@android:color/background_light"
+            android:textSize="20dp" />
 
         <RadioGroup
-			android:id="@+id/ox"
-            android:layout_gravity="center"
+            android:id="@+id/ox"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
 
             <RadioButton
                 android:id="@+id/one"
-                android:text="One "
-                android:textSize="48dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="One "
+                android:textColor="@android:color/background_light"
+                android:textSize="48dp" />
 
             <RadioButton
                 android:id="@+id/two"
-                android:text="Two"
-                android:textSize="48dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="Two"
+                android:textColor="@android:color/background_light"
+                android:textSize="48dp" />
 
         </RadioGroup>
 
         <TextView
             android:id="@+id/choice"
-            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginTop="50dp"
-            android:text="What you'll choose will appear here" />
+            android:text="What you'll choose will appear here"
+            android:textColor="@android:color/darker_gray" />
 
         <LinearLayout
-            android:layout_marginTop="50dp"
-            android:layout_gravity="center"
-            android:orientation="horizontal"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/exit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="EXIT" />
+                android:text="EXIT"
+                android:textColor="@color/colorAccent" />
 
             <Button
                 android:id="@+id/confirm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
                 android:text="confirm"
-                android:layout_marginLeft="30dp"/>
+                android:textColor="?attr/colorAccent" />
 
         </LinearLayout>
 

@@ -19,19 +19,22 @@ public class BoardOne extends Activity {
 
     public static boolean flag;
 
-    RadioButton x, o;
-    Button b1, b2, b3, b4, b5, b6, b7, b8, b9, reset, mainMenu;
-    int counter;
-    boolean gameActive, x_chosen;
-    TextView tv;
-    List l;
-    String text;
+    private RadioButton x, o;
+    private Button b1, b2, b3, b4, b5, b6, b7, b8, b9, reset, mainMenu;
+    private int counter;
+    private boolean gameActive, x_chosen;
+    private TextView tv;
+    private List l;
+    private String text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.board);
 
+        /**
+         * Dialog box for choosing character
+         */
         final Dialog dialog = new Dialog(BoardOne.this);
         dialog.setContentView(R.layout.choose_player);
         dialog.setCancelable(false);
@@ -94,6 +97,20 @@ public class BoardOne extends Activity {
         l.add(b9);
 
         reset();
+
+        /**
+         * If the human player chooses player 'O', the computer will make the first
+         * move as player 'X' and this move will be generated randomly. After making
+         * the move the button will be disabled and 1 will be added to the global
+         * variable counter.
+         */
+        if (!x_chosen && gameActive) {
+            Random r = new Random();
+            int m = r.nextInt(10);;
+            ((Button) l.get(m)).setText("X");
+            counter++;
+            ((Button) l.get(m)).setEnabled(false);
+        }
 
         buttonClick();
     }
@@ -170,24 +187,209 @@ public class BoardOne extends Activity {
             text = "X";
         }
 
-        Thread thread = new Thread() {
-            public void run() {
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        };
-        thread.start();
         Random r = new Random();
         int rand = r.nextInt(10);
-        if (!isEmpty((Button) l.get(rand))) {
-            ((Button) l.get(rand)).setText(text);
-            ((Button) l.get(rand)).setEnabled(false);
-        } else {
-            randomMove();
+        if (gameActive) {
+            if (!isEmpty((Button) l.get(rand))) {
+                ((Button) l.get(rand)).setText(text);
+                ((Button) l.get(rand)).setEnabled(false);
+                counter++;
+            } else {
+                randomMove();
+            }
         }
+    }
+
+    public void buttonClick1() {
+         if (gameActive) {
+             b1.setOnClickListener(new View.OnClickListener() {
+                 @Override
+                 public void onClick(View view) {
+                     if (counter % 2 == 0) {
+                         if (x_chosen) {
+                             setX(b1);
+                             dec_O();
+                         }
+                     } else {
+                         if (!x_chosen) {
+                             setO(b1);
+                         }
+                     }
+                     b1.setEnabled(false);
+                     counter++;
+                     checkForWinner();
+                     randomMove();
+                 }
+             });
+
+             b2.setOnClickListener(new View.OnClickListener() {
+                 @Override
+                 public void onClick(View view) {
+                     if (counter % 2 == 0) {
+                         if (x_chosen) {
+                             setX(b2);
+                             dec_O();
+                         }
+                     } else {
+                         if (!x_chosen) {
+                             setO(b2);
+                             dec_X();
+                         }
+                     }
+                     b2.setEnabled(false);
+                     counter++;
+                     checkForWinner();
+                     randomMove();
+                 }
+             });
+
+             b3.setOnClickListener(new View.OnClickListener() {
+                 @Override
+                 public void onClick(View view) {
+                     if (counter % 2 == 0) {
+                         if (x_chosen) {
+                             setX(b3);
+                             dec_O();
+                         }
+                     } else {
+                         if (!x_chosen) {
+                             setO(b3);
+                             dec_X();
+                         }
+                     }
+                     b3.setEnabled(false);
+                     counter++;
+                     checkForWinner();
+                     randomMove();
+                 }
+             });
+
+             b4.setOnClickListener(new View.OnClickListener() {
+                 @Override
+                 public void onClick(View view) {
+                     if (counter % 2 == 0) {
+                         if (x_chosen) {
+                             setX(b4);
+                             dec_O();
+                         }
+                     } else {
+                         if (!x_chosen) {
+                             setO(b4);
+                             dec_X();
+                         }
+                     }
+                     b4.setEnabled(false);
+                     counter++;
+                     checkForWinner();
+                     randomMove();
+                 }
+             });
+
+             b5.setOnClickListener(new View.OnClickListener() {
+                 @Override
+                 public void onClick(View view) {
+                     if (counter % 2 == 0) {
+                         if (x_chosen) {
+                             setX(b5);
+                             dec_O();
+                         }
+                     } else {
+                         if (!x_chosen) {
+                             setO(b5);
+                             dec_X();
+                         }
+                     }
+                     b5.setEnabled(false);
+                     counter++;
+                     checkForWinner();
+                     randomMove();
+                 }
+             });
+
+             b6.setOnClickListener(new View.OnClickListener() {
+                 @Override
+                 public void onClick(View view) {
+                     if (counter % 2 == 0) {
+                         if (x_chosen) {
+                             setX(b6);
+                             dec_O();
+                         }
+                     } else {
+                         if (!x_chosen) {
+                             setO(b6);
+                             dec_X();
+                         }
+                     }
+                     b6.setEnabled(false);
+                     counter++;
+                     checkForWinner();
+                     randomMove();
+                 }
+             });
+
+             b7.setOnClickListener(new View.OnClickListener() {
+                 @Override
+                 public void onClick(View view) {
+                     if (counter % 2 == 0) {
+                         if (x_chosen) {
+                             setX(b7);
+                             dec_O();
+                         }
+                     } else {
+                         if (!x_chosen) {
+                             setO(b7);
+                             dec_X();
+                         }
+                     }
+                     b1.setEnabled(false);
+                     counter++;
+                     checkForWinner();
+                     randomMove();
+                 }
+             });
+
+             b8.setOnClickListener(new View.OnClickListener() {
+                 @Override
+                 public void onClick(View view) {
+                     if (counter % 2 == 0) {
+                         if (x_chosen) {
+                             setX(b8);
+                             dec_O();
+                         }
+                     } else {
+                         if (!x_chosen) {
+                             setO(b8);
+                             dec_X();
+                         }
+                     }
+                     b1.setEnabled(false);
+                     counter++;
+                     checkForWinner();
+                     randomMove();
+                 }
+             });
+
+             b9.setOnClickListener(new View.OnClickListener() {
+                 @Override
+                 public void onClick(View view) {
+                     if (counter % 2 == 0) {
+                         if (x_chosen) {
+                             setX(b9);
+                             dec_O();
+                         }
+                     } else {
+                         if (!x_chosen) {
+                             setO(b9);
+                             dec_X();
+                         }
+                     }
+                     b1.setEnabled(false);
+                     counter++;
+                     checkForWinner();
+                     randomMove();
+                 }
+             });
+         }
     }
 
     // handles each button click.
@@ -214,7 +416,9 @@ public class BoardOne extends Activity {
             }
         });
 
-        if (gameActive) {
+        buttonClick1();
+
+        /*if (gameActive) {
             b1.setOnClickListener(new Button.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -358,9 +562,10 @@ public class BoardOne extends Activity {
                     counter++;
                 }
             });
-        }
+        }*/
     }
 
+    // The following function checks whether anyone has won or now and ends the game.
     public void checkForWinner() {
         if (gameActive && !isEmpty(b1) && b1.getText().toString() == b2.getText().toString() &&
                 b1.getText().toString() == b3.getText().toString()) {
